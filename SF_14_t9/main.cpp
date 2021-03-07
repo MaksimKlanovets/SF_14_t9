@@ -4,23 +4,23 @@ using namespace std;
 
 int main()
 {
-	TrieNode* trieNode;
-	trieNode = getNewNode();
 	
-	insert(trieNode, "hello");
-	insert(trieNode, "win");
-	insert(trieNode, "won");
-	insert(trieNode, "world");
-	insert(trieNode, "winner");
-	while (true)
-	{
-		
+	Autocomplete autocompete;
+	autocompete.insert("hello");
+	autocompete.insert("help");
+	autocompete.insert("horor");
+	autocompete.insert("horse");
+	autocompete.insert("half");
 
 
-	}
+	autocompete.insert("win");
+	autocompete.insert("won");
+	autocompete.insert("winner");
 
+	autocompete.start();
 	
 
-
+	
+	
 	return 0;
 }
