@@ -1,9 +1,8 @@
 #pragma once
 #include <iostream>
 using namespace std;
-
+#include <conio.h>
 #define  ALPHABET_SIZE  26
-
 
 // Структура узела дерева 
 struct TrieNode
@@ -11,12 +10,31 @@ struct TrieNode
     struct TrieNode* children[ALPHABET_SIZE];
     // isEndOfWord - true, если ключ является концом слова
     bool isEndOfWord;
+
 };
 
-TrieNode* getNewNode(void);
-void insert(TrieNode*, string);
-bool search(TrieNode*, string);
-bool isEmpty(TrieNode*);
-TrieNode* remove(TrieNode*, string, int depth = 0);
-void findMinPrefixes(TrieNode*, char[], int, string&);
-void print(TrieNode*, int depth = 0);
+class Autocomplete
+{
+public:
+   
+	Autocomplete();
+    ~Autocomplete();
+    void insert(string key);
+    bool search(string key);
+   
+    bool isEmpty(TrieNode* node);
+    void printVersion(string);
+    void start();
+private:
+    void depth(TrieNode*, string key,char buf[],int indexBuf, string &res);
+    void has_prefix(TrieNode* node, int& cnt_ends);
+    TrieNode* getNewNode();
+    TrieNode* _root;
+    int _counterWords;
+};
+
+
+
+
+
+
